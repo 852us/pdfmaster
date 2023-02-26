@@ -102,6 +102,8 @@ def unlock_directory(name = os.path.curdir):
 	text_output("\n解密文件夹: 【{}】的文件...\n".format(name), 'green')
 	itemlist = os.listdir(name)
 	for item in itemlist:
+		if item.startswith('.'):
+			continue
 		item = os.path.join(name, item)
 		if os.path.isdir(item) :
 			unlock_directory(item)
